@@ -1,32 +1,39 @@
-// Given a non-negative integer x, compute and return the square root of x.
+// 83. Remove Duplicates from Sorted List
+// Easy
 
-// Since the return type is an integer, the decimal digits are truncated, and only the integer part of the result is returned.
-
-// Note: You are not allowed to use any built-in exponent function or operator, such as pow(x, 0.5) or x ** 0.5.
+// Given the head of a sorted linked list, delete all duplicates such that each element appears only once. Return the linked list sorted as well.
 
  
 
 // Example 1:
 
-// Input: x = 4
-// Output: 2
+// Input: head = [1,1,2]
+// Output: [1,2]
 
 // Example 2:
 
-// Input: x = 8
-// Output: 2
-// Explanation: The square root of 8 is 2.82842..., and since the decimal part is truncated, 2 is returned.
+// Input: head = [1,1,2,3,3]
+// Output: [1,2,3]
 
  
 
 // Constraints:
 
-//     0 <= x <= 231 - 1
+//     The number of nodes in the list is in the range [0, 300].
+//     -100 <= Node.val <= 100
+//     The list is guaranteed to be sorted in ascending order.
 
 /**
- * @param {number} x
- * @return {number}
+ * Definition for singly-linked list.
+ * function ListNode(val, next) {
+ *     this.val = (val===undefined ? 0 : val)
+ *     this.next = (next===undefined ? null : next)
+ * }
  */
- var mySqrt = function(x) {
+/**
+ * @param {ListNode} head
+ * @return {ListNode}
+ */
+ var deleteDuplicates = function(head) {
     
 };
