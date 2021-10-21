@@ -32,8 +32,10 @@
 
 
 
-# @param {Integer[]} nums
-# @return {Integer}
-def find_length_of_lcis(nums)
+/**
+ * @param {number[]} nums
+ * @return {number}
+ */
+ var findLengthOfLCIS = function(nums) {
     
-end
+};
