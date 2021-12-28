@@ -42,4 +42,4 @@
  */
  var validMountainArray = function(arr) {
     
-};>
+};
