@@ -1,64 +1,47 @@
-// 944. Delete Columns to Make Sorted
+// 961. N-Repeated Element in Size 2N Array
 // Easy
 
-// You are given an array of n strings strs, all of the same length.
+// You are given an integer array nums with the following properties:
 
-// The strings can be arranged such that there is one on each line, making a grid. For example, strs = ["abc", "bce", "cae"] can be arranged as:
+//     nums.length == 2 * n.
+//     nums contains n + 1 unique elements.
+//     Exactly one element of nums is repeated n times.
 
-// abc
-// bce
-// cae
-
-// You want to delete the columns that are not sorted lexicographically. In the above example (0-indexed), columns 0 ('a', 'b', 'c') and 2 ('c', 'e', 'e') are sorted while column 1 ('b', 'c', 'a') is not, so you would delete column 1.
-
-// Return the number of columns that you will delete.
+// Return the element that is repeated n times.
 
  
 
 // Example 1:
 
-// Input: strs = ["cba","daf","ghi"]
-// Output: 1
-// Explanation: The grid looks as follows:
-//   cba
-//   daf
-//   ghi
-// Columns 0 and 2 are sorted, but column 1 is not, so you only need to delete 1 column.
+// Input: nums = [1,2,3,3]
+// Output: 3
 
 // Example 2:
 
-// Input: strs = ["a","b"]
-// Output: 0
-// Explanation: The grid looks as follows:
-//   a
-//   b
-// Column 0 is the only column and is sorted, so you will not delete any columns.
+// Input: nums = [2,1,2,5,3,2]
+// Output: 2
 
 // Example 3:
 
-// Input: strs = ["zyx","wvu","tsr"]
-// Output: 3
-// Explanation: The grid looks as follows:
-//   zyx
-//   wvu
-//   tsr
-// All 3 columns are not sorted, so you will delete all 3.
+// Input: nums = [5,1,5,2,5,3,5,4]
+// Output: 5
 
  
 
 // Constraints:
 
-//     n == strs.length
-//     1 <= n <= 100
-//     1 <= strs[i].length <= 1000
-//     strs[i] consists of lowercase English letters.
+//     2 <= n <= 5000
+//     nums.length == 2 * n
+//     0 <= nums[i] <= 104
+//     nums contains n + 1 unique elements and one of them is repeated exactly n times.
+
 
 
 
 /**
- * @param {string[]} strs
+ * @param {number[]} nums
  * @return {number}
  */
- var minDeletionSize = function(strs) {
+ var repeatedNTimes = function(nums) {
     
 };
