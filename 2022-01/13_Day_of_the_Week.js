@@ -1,40 +1,44 @@
-// 1189. Maximum Number of Balloons
+// 1185. Day of the Week
 // Easy
 
-// Given a string text, you want to use the characters of text to form as many instances of the word "balloon" as possible.
+// Given a date, return the corresponding day of the week for that date.
 
-// You can use each character in text at most once. Return the maximum number of instances that can be formed.
+// The input is given as three integers representing the day, month and year respectively.
+
+// Return the answer as one of the following values {"Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"}.
 
  
 
 // Example 1:
 
-// Input: text = "nlaebolko"
-// Output: 1
+// Input: day = 31, month = 8, year = 2019
+// Output: "Saturday"
 
 // Example 2:
 
-// Input: text = "loonbalxballpoon"
-// Output: 2
+// Input: day = 18, month = 7, year = 1999
+// Output: "Sunday"
 
 // Example 3:
 
-// Input: text = "leetcode"
-// Output: 0
+// Input: day = 15, month = 8, year = 1993
+// Output: "Sunday"
 
  
 
 // Constraints:
 
-//     1 <= text.length <= 104
-//     text consists of lower case English letters only.
+//     The given dates are valid dates between the years 1971 and 2100.
+
 
 
 
 /**
- * @param {string} text
- * @return {number}
+ * @param {number} day
+ * @param {number} month
+ * @param {number} year
+ * @return {string}
  */
- var maxNumberOfBalloons = function(text) {
+ var dayOfTheWeek = function(day, month, year) {
     
 };
