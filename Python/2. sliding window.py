@@ -251,6 +251,7 @@ def non_repeating_substring(str):
 
 def length_of_longest_substring(str, k):
     start = 0
+    max_repeating_letters = 0
     max_length = 0
     chars = {}
 
@@ -258,11 +259,52 @@ def length_of_longest_substring(str, k):
         if str[end] not in chars:
             chars[str[end]] = 0
         chars[str[end]] += 1
+        max_repeating_letters = max(chars[str[end]], max_repeating_letters)
 
-        while len(chars) >= k:
-            start
+        while end-start+1 > max_repeating_letters + k:
+            chars[str[start]] -= 1
+            start += 1
+
+        max_length = max(end-start+1, max_length)
+            
+    return max_length
+
+# print(length_of_longest_substring('aabccbb', 2))
+# print(length_of_longest_substring('abbcb', 1))
+# print(length_of_longest_substring('abccde', 1))
+
+
+
+
+
+
+# Problem Statement #
+
+# Given an array containing 0s and 1s, if you are allowed to 
+# replace no more than ‘k’ 0s with 1s, find the length of the longest contiguous subarray having all 1s.
+
+# Example 1:
+
+# Input: Array=[0, 1, 1, 0, 0, 0, 1, 1, 0, 1, 1], k=2
+# Output: 6
+# Explanation: Replace the '0' at index 5 and 8 to have the longest contiguous subarray of 1s having length 6.
+
+# Example 2:
+
+# Input: Array=[0, 1, 0, 0, 1, 1, 0, 1, 1, 0, 0, 1, 1], k=3
+# Output: 9
+# Explanation: Replace the '0' at index 6, 9, and 10 to have the longest contiguous subarray of 1s having length 9.
+
+
+def longest_subarray_with_ones_after_replacement(arr, k):
+    start, zero_count, max_length = 0, 0, 0
+
+    for end in range(len(arr)):
+        if arr[end] == 0:
+            zero_count += 1
+
+        
     return
 
-print(length_of_longest_substring('aabccbb', 2))
-print(length_of_longest_substring('abbcb', 1))
-print(length_of_longest_substring('abccde', 1))
+print(longest_subarray_with_ones_after_replacement([0, 1, 1, 0, 0, 0, 1, 1, 0, 1, 1], 2))
+print(longest_subarray_with_ones_after_replacement([0, 1, 0, 0, 1, 1, 0, 1, 1, 0, 0, 1, 1], 3))
