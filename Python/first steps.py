@@ -1,3 +1,0 @@
-hello = 'tim'
-
-print(hello)
