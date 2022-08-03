@@ -300,9 +300,9 @@ def longest_subarray_with_ones_after_replacement(arr, k):
     start, zero_count, max_length = 0, 0, 0
 
     for end in range(len(arr)):
-        if arr[end] == 0:5
+        if arr[end] == 0:
             zero_count += 1
-
+        
         
     return
 
