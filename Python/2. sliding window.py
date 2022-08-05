@@ -302,9 +302,262 @@ def longest_subarray_with_ones_after_replacement(arr, k):
     for end in range(len(arr)):
         if arr[end] == 0:
             zero_count += 1
+        if zero_count > k:
+            if arr[start] == 0:
+                zero_count -= 1
+            start += 1
+        max_length = max(end - start + 1, max_length)
+    return max_length
+
+# print(longest_subarray_with_ones_after_replacement([0, 1, 1, 0, 0, 0, 1, 1, 0, 1, 1], 2))
+# print(longest_subarray_with_ones_after_replacement([0, 1, 0, 0, 1, 1, 0, 1, 1, 0, 0, 1, 1], 3))
+
+
+
+# Permutation in a String (hard) #
+
+# Given a string and a pattern, find out if the string contains any permutation of the pattern.
+
+# Permutation is defined as the re-arranging of the characters of the string. For example, “abc” has the following six permutations:
+
+#     abc
+#     acb
+#     bac
+#     bca
+#     cab
+#     cba
+
+# If a string has ‘n’ distinct characters it will have n!n!n! permutations.
+
+# Example 1:
+
+# Input: String="oidbcaf", Pattern="abc"
+# Output: true
+# Explanation: The string contains "bca" which is a permutation of the given pattern.
+
+# Example 2:
+
+# Input: String="odicf", Pattern="dc"
+# Output: false
+# Explanation: No permutation of the pattern is present in the given string as a substring.
+
+# Example 3:
+
+# Input: String="bcdxabcdy", Pattern="bcdyabcdx"
+# Output: true
+# Explanation: Both the string and the pattern are a permutation of each other.
+
+# Example 4:
+
+# Input: String="aaacb", Pattern="abc"
+# Output: true
+# Explanation: The string contains "acb" which is a permutation of the given pattern.
+
+def food_permutation(str, pattern):
+    chars = {}
+    start = 0
+    for char in pattern:
+        if char not in chars:
+            chars[char] = 0
+        chars[char] -= 1
+
+    for end in range(len(str)):
+        if str[end] not in chars:
+            chars[str[end]] = 0
+        chars[str[end]] += 1
+        if chars[str[end]] == 0:
+            del chars[str[end]]
+
+        if end - start + 1 != len(pattern):
+            continue
+
+        if len(chars) == 0:
+            return True
+
+        if str[start] not in chars:
+            chars[str[start]] = 0
+        chars[str[start]] -= 1
+        if chars[str[start]] == 0:
+            del chars[str[start]]
+        start += 1
+    return False
+
+# examples = [
+#         ["oidbcaf", "abc"],
+#         ["odicf", "dc"],
+#         ["bcdxabcdy", "bcdyabcdx"],
+#         ["aaacb", "abc"]
+#     ]
+# for example in examples:
+#     print(food_permutation(*example))
+
+
+
+
+# String Anagrams (hard) #
+
+# Given a string and a pattern, find all anagrams of the pattern in the given string.
+
+# Anagram is actually a Permutation of a string. For example, “abc” has the following six anagrams:
+
+#     abc
+#     acb
+#     bac
+#     bca
+#     cab
+#     cba
+
+# Write a function to return a list of starting indices of the anagrams of the pattern in the given string.
+
+# Example 1:
+
+# Input: String="ppqp", Pattern="pq"
+# Output: [1, 2]
+# Explanation: The two anagrams of the pattern in the given string are "pq" and "qp".
+
+# Example 2:
+
+# Input: String="abbcabc", Pattern="abc"
+# Output: [2, 3, 4]
+# Explanation: The three anagrams of the pattern in the given string are "bca", "cab", and "abc".
+
+def find_string_anagrams(str, pattern):
+    chars = {}
+    start = 0
+    matches = 0
+    res = []
+
+    for char in pattern:
+        if char not in chars:
+            chars[char] = 0
+        chars[char] += 1
+
+    for end in range(len(str)):
+        if str[end] in chars:
+            chars[str[end]] -= 1
+        if chars[str[end]] == 0:
+            matches += 1
+
+        if end - start + 1 != len(pattern):
+            continue
+
+        if matches == len(chars):
+            res.append(start)
+
+        if str[start] in chars:
+            if chars[str[start]] == 0:
+                matches -= 1
+            chars[str[start]] += 1
+        start += 1
+
+    return res
+
+# print(find_string_anagrams("ppqp", "pq"))
+# print(find_string_anagrams("abbcabc", "abc"))
+
+
+"""
+Smallest Window containing Substring (hard) #
+
+Given a string and a pattern, find the smallest substring in the given string which has all the characters of the given pattern.
+
+Example 1:
+
+Input: String="aabdec", Pattern="abc"
+Output: "abdec"
+Explanation: The smallest substring having all characters of the pattern is "abdec"
+
+Example 2:
+
+Input: String="abdabca", Pattern="abc"
+Output: "abc"
+Explanation: The smallest substring having all characters of the pattern is "abc".
+
+Example 3:
+
+Input: String="adcad", Pattern="abc"
+Output: ""
+Explanation: No substring in the given string has all characters of the pattern.
+"""
+
+def find_substring(str, pattern):
+    chars = {}
+    start = 0
+    matches = 0
+    min_length = len(str) + 1
+    substring_idx = len(str)
+
+    for char in pattern:
+        if char not in chars:
+            chars[char] = 0
+        chars[char] += 1
+    
+    for end in range(len(str)):
+        if str[end] in chars:
+            chars[str[end]] -= 1
+            if chars[str[end]] == 0:
+                matches += 1
+
+        while matches == len(chars):
+            if str[start] in chars:
+                if chars[str[start]] == 0:
+                    matches -= 1
+                chars[str[start]] += 1
+            start += 1
         
-        
+            if end - start + 1 < min_length:
+                substring_idx = start
+                min_length = end - start + 1
+
+    return str[substring_idx:substring_idx+min_length+1]
+
+# print(find_substring("aabdec", "abc"))
+# print(find_substring("abdabca", "abc"))
+# print(find_substring("adcad", "abc"))
+
+"""
+Words Concatenation (hard) #
+
+Given a string and a list of words, find all the starting indices of substrings in 
+the given string that are a concatenation of all the given words exactly once without
+any overlapping of words. It is given that all words are of the same length.
+
+Example 1:
+
+Input: String="catfoxcat", Words=["cat", "fox"]
+Output: [0, 3]
+Explanation: The two substring containing both the words are "catfox" & "foxcat".
+
+Example 2:
+
+Input: String="catcatfoxfox", Words=["cat", "fox"]
+Output: [3]
+Explanation: The only substring containing both the words is "catfox".
+"""
+
+def find_word_concatenation(str, words):
+    word_freqs = {}
+    word_length = len(words[0])
+    
+    for word in words:
+        if word not in word_freqs:
+            word_freqs[word] = 0
+        word_freqs[word] += 1
+
+    for i in range(0, len(str) - len(words) * word_length + 1):
+        words_seen = {}
+        for j in range(i, i + word_length * len(words), word_length):
+            word = str[j:j+word_length]
+            if word not in word_freqs:
+                break
+            if word not in words_seen:
+                words_seen[word] = 0
+            words_seen[word] += 1
+            if words_seen[word] > word_freqs[word]:
+                break
+            if (j + word_length) / word_length ==
+
     return
 
-print(longest_subarray_with_ones_after_replacement([0, 1, 1, 0, 0, 0, 1, 1, 0, 1, 1], 2))
-print(longest_subarray_with_ones_after_replacement([0, 1, 0, 0, 1, 1, 0, 1, 1, 0, 0, 1, 1], 3))
+print(find_word_concatenation("catfoxcat", ["cat", "fox"]))
+print(find_word_concatenation("catcatfoxfox", ["cat", "fox"]))
