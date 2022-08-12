@@ -69,4 +69,3 @@ class Node:
 # this without looking at the input.
 
 # [1,4,2,5,3] => [1,2,3,4,5]
-
