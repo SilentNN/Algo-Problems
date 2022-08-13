@@ -45,9 +45,9 @@ class Node:
 # c = Node('c')
 # d = Node('d')
 # e = Node('e')
-# f = Node('f')1
-# a.next = b2
-# b.next = c3
+# f = Node('f')
+# a.next = b
+# b.next = c
 # c.next = d
 # d.next = e
 # e.next = f # a -> b -> c -> d -> e -> f
