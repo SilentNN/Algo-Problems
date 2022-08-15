@@ -41,7 +41,7 @@ class Node:
         return (", ").join(a)
 
 # a = Node('a')
-# b = Node('b')2344
+# b = Node('b')
 # c = Node('c')
 # d = Node('d')
 # e = Node('e')
