@@ -556,7 +556,7 @@ def find_word_concatenation(str, words):
 
             if word not in words_seen:
                 words_seen[word] = 0
-            words_seen[word] += 12
+            words_seen[word] += 13
 
             if words_seen[word] > word_freqs[word]:
                 break
