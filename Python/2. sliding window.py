@@ -538,6 +538,7 @@ Explanation: The only substring containing both the words is "catfox".
 def find_word_concatenation(str, words):
     word_freqs = {}
     word_length = len(words[0])
+    res = []
     
     for word in words:
         if word not in word_freqs:
@@ -546,18 +547,24 @@ def find_word_concatenation(str, words):
 
     for i in range(0, len(str) - len(words) * word_length + 1):
         words_seen = {}
-        for j in range(i, i + word_length * len(words), word_length):
-            word = str[j:j+word_length]
+        for j in range(0, len(words)):
+            idx = i + word_length * j
+            word = str[idx:idx+word_length]
+
             if word not in word_freqs:
                 break
+
             if word not in words_seen:
                 words_seen[word] = 0
             words_seen[word] += 1
+
             if words_seen[word] > word_freqs[word]:
                 break
-            if (j + word_length) / word_length ==
-
-    return
+            
+            if j == len(words) -1:
+                res.append(i)
+            
+    return res
 
 print(find_word_concatenation("catfoxcat", ["cat", "fox"]))
 print(find_word_concatenation("catcatfoxfox", ["cat", "fox"]))
