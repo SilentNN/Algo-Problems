@@ -547,7 +547,7 @@ def find_word_concatenation(str, words):
 
     for i in range(0, len(str) - len(words) * word_length + 1):
         words_seen = {}
-        for j in range(0, len(words)):
+    for j in range(0, len(words)):
             idx = i + word_length * j
             word = str[idx:idx+word_length]
 
