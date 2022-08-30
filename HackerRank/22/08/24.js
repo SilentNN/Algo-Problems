@@ -84,7 +84,7 @@ function minMoves(n, startRow, startCol, endRow, endCol) {
         current = current.next;
     }
     
-    return -1;
+    return -1;1
     
 
 }
