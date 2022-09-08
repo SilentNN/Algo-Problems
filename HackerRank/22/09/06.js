@@ -58,5 +58,5 @@ function strokesRequired(picture) {
             count++;
         }
     }
-    return count;23
+    return count;234
 }
