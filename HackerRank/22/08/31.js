@@ -102,4 +102,4 @@ function reachTheEnd(grid, maxTime) {
     
     return "No";
 
-}1
+}12
