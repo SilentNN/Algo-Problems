@@ -45,7 +45,7 @@ function strokesRequired(picture) {
             while (stack.length) {
                 const [cR, cC] = stack.pop(); //current row & col
                 for (const [dR, dC] of dirs) { //delta row & col
-                    const [nR, nC] = [cR + dR, cC + dC] //new row & col
+                    const [nR, nC] = [cR + dR, cC + dC]; //new row & col
                     
                     if (nR < 0 || nC < 0 || nR >= picture.length || nC >= picture[0].length ||
                     visited.has(`${nR},${nC}`) ||
