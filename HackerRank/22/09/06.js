@@ -61,4 +61,4 @@ function strokesRequired(picture) {
     return count;
 }
 
-123
+1234
