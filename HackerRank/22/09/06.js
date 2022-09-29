@@ -60,4 +60,4 @@ function strokesRequired(picture) {
     }
     return count;
 }
-3
+34
